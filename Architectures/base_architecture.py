@@ -27,7 +27,32 @@ class BaseArchitecture(ABC, nn.Module):
         self.config = config
         self.name = name
         self.device = config.get('device', 'cpu')
+        self.stateless_forward = config.get('stateless_forward', True)
+        self._resetting_runtime_state = False
         self.to(self.device)
+
+    def __call__(self, *args, **kwargs):
+        if self.stateless_forward and not self._resetting_runtime_state:
+            self.reset_runtime_state()
+        return super().__call__(*args, **kwargs)
+
+    def reset_runtime_state(self) -> None:
+        """Clear inference caches/state carried between independent test calls."""
+        self._resetting_runtime_state = True
+        try:
+            for module in self.modules():
+                if module is not self and hasattr(module, 'disable_cache'):
+                    try:
+                        module.disable_cache()
+                    except Exception:
+                        pass
+            state_markers = ('state', 'cache', 'history', 'previous')
+            for name, buffer in self.named_buffers():
+                leaf_name = name.rsplit('.', 1)[-1].lower()
+                if any(marker in leaf_name for marker in state_markers):
+                    buffer.detach().zero_()
+        finally:
+            self._resetting_runtime_state = False
         
     @abstractmethod
     def forward(self, x: torch.Tensor) -> torch.Tensor:

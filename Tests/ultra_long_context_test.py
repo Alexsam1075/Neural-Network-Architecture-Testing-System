@@ -67,9 +67,6 @@ class UltraLongContextTest(BaseTest):
         return 0
 
     def _long_context_safe(self, model: nn.Module) -> bool:
-        name = getattr(model, "name", model.__class__.__name__).lower()
-        if name in {"apexfactorseedsolver", "apexfactorseedsolverplus"}:
-            return True
         if hasattr(model, "get_architecture_info"):
             try:
                 return bool(model.get_architecture_info().get("long_context_safe", False))

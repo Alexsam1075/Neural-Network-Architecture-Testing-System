@@ -1,150 +1,133 @@
 from typing import Any, Dict
 
+import torch
+import torch.nn as nn
+
 from .honest_sequence_core import HonestSequenceCore
 
 
-class _AssociativeInductionCore(HonestSequenceCore):
-    """Backward-compatible honest replacement for associative induction solvers."""
+class LocalFormulaMixer(HonestSequenceCore):
+    """Depthwise causal-style local mixer: h = h + W_mix(Conv(LN(h)))."""
 
-    def __init__(
-        self,
-        config: Dict[str, Any],
-        name: str,
-        *,
-        dim: int = 96,
-        memory_dim: int = 64,
-        periods=(),
-        use_attention: bool = False,
-        use_conv: bool = True,
-        **_removed_kwargs: Any,
-    ):
-        super().__init__(
-            config,
-            name,
-            dim=dim,
-            layers=max(1, config.get("num_layers", 1)),
-            use_attention=use_attention,
-            use_recurrent=not use_conv,
-            conv_kernel=5,
-        )
-        self.memory_dim = memory_dim
-        self.periods = tuple(periods)
-        self.compat_removed_biases = {
-            "copy": 0.0,
-            "pair": 0.0,
-            "seed": 0.0,
-            "recall": 0.0,
-        }
+    def __init__(self, config: Dict[str, Any]):
+        super().__init__(config, "LocalFormulaMixer", dim=72, layers=2, conv_kernel=7)
 
     def get_architecture_info(self) -> Dict[str, Any]:
         info = super().get_architecture_info()
         info.update(
             {
-                "memory_dim": self.memory_dim,
-                "periods": self.periods,
-                "copy_induction_logits": False,
-                "pair_memory_logits": False,
-                "seed_program_logits": False,
-                "numeric_solver_logits": False,
-                "hypothesis": "honest trainable sequence model; handcrafted induction solvers removed",
+                "formula": "h_l = h_{l-1} + W_mix(Conv_k(LN(h_{l-1}))); logits = W_o LN(h_L)",
+                "handcrafted_solver": False,
             }
         )
         return info
 
 
-class InductionTiny(_AssociativeInductionCore):
+class GatedDeltaMixer(HonestSequenceCore):
+    """Learns from token-to-token deltas without carrying hidden state across batches."""
+
     def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "InductionTiny", dim=48, memory_dim=32)
+        super().__init__(config, "GatedDeltaMixer", dim=96, layers=2, conv_kernel=5)
+        self.delta_gate = nn.Linear(self.dim * 2, self.dim)
+        self.delta_proj = nn.Linear(self.dim, self.dim)
 
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = x.clamp(0, self.vocab_size - 1)
+        bsz, length = x.shape
+        token_h = self.token_emb(x)
+        h = token_h + self.pos_encoding(bsz, length, x.device, token_h.dtype)
 
-class PairTransitionNet(_AssociativeInductionCore):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "PairTransitionNet", dim=64, memory_dim=64)
+        prev = torch.cat([h[:, :1, :], h[:, :-1, :]], dim=1)
+        delta = h - prev
+        gate = torch.sigmoid(self.delta_gate(torch.cat([h, delta], dim=-1)))
+        h = h + gate * self.delta_proj(delta)
 
+        for block in self.blocks:
+            n = block["norm"](h)
+            c = block["conv"](n.transpose(1, 2)).transpose(1, 2)
+            h = h + block["mix"](c)
+            h = h + block["ffn"](h)
 
-class SeedProgrammer(_AssociativeInductionCore):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "SeedProgrammer", dim=72, memory_dim=96)
-
-
-class CopyInductionHybrid(_AssociativeInductionCore):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "CopyInductionHybrid", dim=96, memory_dim=64, use_attention=True)
-
-
-class MetaRouteKernel(_AssociativeInductionCore):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "MetaRouteKernel", dim=112, memory_dim=96, use_attention=True)
-
-
-class _NumericalInductionSolver(_AssociativeInductionCore):
-    """Compatibility shim with no explicit numerical solver."""
-
-
-class ApexInductionSolver(_NumericalInductionSolver):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "ApexInductionSolver", dim=96, memory_dim=96)
-
-
-class ApexInductionSolverFast(_NumericalInductionSolver):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "ApexInductionSolverFast", dim=64, memory_dim=64)
-
-
-class ApexSeedSolver(_NumericalInductionSolver):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "ApexSeedSolver", dim=72, memory_dim=96)
-
-
-class ApexSeedSolverTurbo(_NumericalInductionSolver):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "ApexSeedSolverTurbo", dim=56, memory_dim=72, use_conv=False)
-
-
-class ApexSeedSolverFlash(_NumericalInductionSolver):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "ApexSeedSolverFlash", dim=72, memory_dim=96, use_conv=False)
-
-
-class ApexSeedSolverSwift(_NumericalInductionSolver):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "ApexSeedSolverSwift", dim=64, memory_dim=88, use_conv=False)
-
-
-class ApexSeedSolverBlade(_NumericalInductionSolver):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "ApexSeedSolverBlade", dim=64, memory_dim=80)
-
-
-class ApexSeedSolverCompact(_NumericalInductionSolver):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "ApexSeedSolverCompact", dim=48, memory_dim=64)
-
-
-class _GatedNumericalInductionSolver(_NumericalInductionSolver):
-    """Compatibility shim with no input-content gate."""
-
-
-class ApexSeedSolverGated(_GatedNumericalInductionSolver):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "ApexSeedSolverGated", dim=72, memory_dim=96)
-
-
-class ApexFactorSeedSolver(_GatedNumericalInductionSolver):
-    def __init__(self, config: Dict[str, Any]):
-        super().__init__(config, "ApexFactorSeedSolver", dim=72, memory_dim=64)
-        self.factor_dim = 64
+        return self.head(self.norm(h))
 
     def get_architecture_info(self) -> Dict[str, Any]:
         info = super().get_architecture_info()
-        info["factor_dim"] = self.factor_dim
-        info["long_context_safe"] = False
-        info["long_context_note"] = "Uses bounded learned sequence processing; no estimated ultra-long-context credit."
+        info.update(
+            {
+                "formula": "delta_t = h_t - h_{t-1}; g_t = sigmoid(W_g[h_t, delta_t]); h_t += g_t * W_d delta_t",
+                "handcrafted_solver": False,
+            }
+        )
         return info
 
 
-class ApexFactorSeedSolverPlus(ApexFactorSeedSolver):
+class LinearAssociativeMemory(HonestSequenceCore):
+    """Linear attention-style association: softmax(QK^T/sqrt(d))V with learned projections."""
+
     def __init__(self, config: Dict[str, Any]):
-        super().__init__(config)
-        self.name = "ApexFactorSeedSolverPlus"
-        self.factor_dim = 80
+        super().__init__(config, "LinearAssociativeMemory", dim=96, layers=1, use_attention=True)
+
+    def get_architecture_info(self) -> Dict[str, Any]:
+        info = super().get_architecture_info()
+        info.update(
+            {
+                "formula": "Q=W_q h, K=W_k h, V=W_v h; A=softmax(QK^T/sqrt(d)); h += A V",
+                "handcrafted_solver": False,
+            }
+        )
+        return info
+
+
+class FactorizedTransitionMixer(HonestSequenceCore):
+    """Low-rank transition model: h = h + (hA)B."""
+
+    def __init__(self, config: Dict[str, Any]):
+        super().__init__(config, "FactorizedTransitionMixer", dim=112, layers=2, conv_kernel=5)
+        rank = config.get("transition_rank", 32)
+        self.transition_rank = rank
+        self.left = nn.Linear(self.dim, rank, bias=False)
+        self.right = nn.Linear(rank, self.dim, bias=False)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        h_logits = super().forward(x)
+        x = x.clamp(0, self.vocab_size - 1)
+        bsz, length = x.shape
+        token_h = self.token_emb(x)
+        h = token_h + self.pos_encoding(bsz, length, x.device, token_h.dtype)
+        transition = self.right(torch.relu(self.left(h)))
+        return h_logits + self.head(self.norm(transition))
+
+    def get_architecture_info(self) -> Dict[str, Any]:
+        info = super().get_architecture_info()
+        info.update(
+            {
+                "transition_rank": self.transition_rank,
+                "formula": "r_t = ReLU(A h_t), transition_t = B r_t, logits += W_o LN(transition_t)",
+                "handcrafted_solver": False,
+            }
+        )
+        return info
+
+
+class RecurrentFormulaCore(HonestSequenceCore):
+    """GRU variant with explicit recurrence: s_t = GRU(h_t, s_{t-1})."""
+
+    def __init__(self, config: Dict[str, Any]):
+        super().__init__(
+            config,
+            "RecurrentFormulaCore",
+            dim=80,
+            layers=1,
+            use_recurrent=True,
+            conv_kernel=3,
+        )
+
+    def get_architecture_info(self) -> Dict[str, Any]:
+        info = super().get_architecture_info()
+        info.update(
+            {
+                "formula": "s_t = GRU(LN(h_t), s_{t-1}); h_t = h_t + s_t; logits_t = W_o LN(h_t)",
+                "handcrafted_solver": False,
+            }
+        )
+        return info

@@ -44,7 +44,7 @@
       "num_layers": 2,
       "num_heads": 4,
       "d_ff": 512,
-      "max_seq_len": 128,
+      "max_context_len": 1000000,
       "dropout": 0.1
     },
     "SSM": {
@@ -495,101 +495,36 @@
       "num_layers": 1,
       "max_seq_len": 128
     },
-    "InductionTiny": {
-      "vocab_size": 256,
-      "d_model": 48,
-      "num_layers": 1,
-      "max_seq_len": 128
-    },
-    "PairTransitionNet": {
-      "vocab_size": 256,
-      "d_model": 64,
-      "num_layers": 1,
-      "max_seq_len": 128
-    },
-    "SeedProgrammer": {
+    "LocalFormulaMixer": {
       "vocab_size": 256,
       "d_model": 72,
-      "num_layers": 1,
-      "max_seq_len": 128
+      "num_layers": 2,
+      "max_context_len": 1000000
     },
-    "CopyInductionHybrid": {
+    "GatedDeltaMixer": {
+      "vocab_size": 256,
+      "d_model": 96,
+      "num_layers": 2,
+      "max_context_len": 1000000
+    },
+    "LinearAssociativeMemory": {
       "vocab_size": 256,
       "d_model": 96,
       "num_layers": 1,
-      "max_seq_len": 128
+      "max_context_len": 1000000
     },
-    "MetaRouteKernel": {
+    "FactorizedTransitionMixer": {
       "vocab_size": 256,
       "d_model": 112,
-      "num_layers": 1,
-      "max_seq_len": 128
+      "num_layers": 2,
+      "transition_rank": 32,
+      "max_context_len": 1000000
     },
-    "ApexInductionSolver": {
+    "RecurrentFormulaCore": {
       "vocab_size": 256,
-      "d_model": 96,
+      "d_model": 80,
       "num_layers": 1,
-      "max_seq_len": 128
-    },
-    "ApexInductionSolverFast": {
-      "vocab_size": 256,
-      "d_model": 64,
-      "num_layers": 1,
-      "max_seq_len": 128
-    },
-    "ApexSeedSolver": {
-      "vocab_size": 256,
-      "d_model": 72,
-      "num_layers": 1,
-      "max_seq_len": 128
-    },
-    "ApexSeedSolverTurbo": {
-      "vocab_size": 256,
-      "d_model": 56,
-      "num_layers": 1,
-      "max_seq_len": 128
-    },
-    "ApexSeedSolverFlash": {
-      "vocab_size": 256,
-      "d_model": 72,
-      "num_layers": 1,
-      "max_seq_len": 128
-    },
-    "ApexSeedSolverSwift": {
-      "vocab_size": 256,
-      "d_model": 64,
-      "num_layers": 1,
-      "max_seq_len": 128
-    },
-    "ApexSeedSolverBlade": {
-      "vocab_size": 256,
-      "d_model": 64,
-      "num_layers": 1,
-      "max_seq_len": 128
-    },
-    "ApexSeedSolverCompact": {
-      "vocab_size": 256,
-      "d_model": 48,
-      "num_layers": 1,
-      "max_seq_len": 128
-    },
-    "ApexSeedSolverGated": {
-      "vocab_size": 256,
-      "d_model": 72,
-      "num_layers": 1,
-      "max_seq_len": 128
-    },
-    "ApexFactorSeedSolver": {
-      "vocab_size": 256,
-      "d_model": 72,
-      "num_layers": 1,
-      "max_seq_len": 128
-    },
-    "ApexFactorSeedSolverPlus": {
-      "vocab_size": 256,
-      "d_model": 72,
-      "num_layers": 1,
-      "max_seq_len": 128
+      "max_context_len": 1000000
     },
     "AIONLongMemoryCore": {
       "vocab_size": 256,

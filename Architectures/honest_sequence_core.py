@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 
 from .base_architecture import BaseArchitecture
+from .positional import DynamicSinusoidalPositionEncoding
 
 
 def _dim(config: Dict[str, Any], default: int) -> int:
@@ -26,14 +27,15 @@ class HonestSequenceCore(BaseArchitecture):
     ):
         super().__init__(config, name)
         self.vocab_size = config.get("vocab_size", 256)
-        self.max_seq_len = config.get("max_seq_len", config.get("seq_length", 128))
+        self.max_seq_len = config.get("max_seq_len", config.get("max_context_len", config.get("seq_length", 128)))
+        self.max_context_len = config.get("max_context_len", self.max_seq_len)
         self.dim = _dim(config, dim)
         self.num_layers = config.get("num_layers", layers)
         self.use_attention = use_attention
         self.use_recurrent = use_recurrent
 
         self.token_emb = nn.Embedding(self.vocab_size, self.dim)
-        self.pos_emb = nn.Embedding(self.max_seq_len, self.dim)
+        self.pos_encoding = DynamicSinusoidalPositionEncoding(self.dim)
         self.blocks = nn.ModuleList()
         conv_groups = min(16, self.dim)
         while self.dim % conv_groups != 0:
@@ -72,9 +74,8 @@ class HonestSequenceCore(BaseArchitecture):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = x.clamp(0, self.vocab_size - 1)
         bsz, length = x.shape
-        pos = torch.arange(length, device=x.device).unsqueeze(0).expand(bsz, -1)
-        pos = pos.clamp(max=self.max_seq_len - 1)
-        h = self.token_emb(x) + self.pos_emb(pos)
+        token_h = self.token_emb(x)
+        h = token_h + self.pos_encoding(bsz, length, x.device, token_h.dtype)
 
         for block in self.blocks:
             n = block["norm"](h)
@@ -97,6 +98,8 @@ class HonestSequenceCore(BaseArchitecture):
             "type": self.name,
             "dim": self.dim,
             "num_layers": self.num_layers,
+            "max_context_len": self.max_context_len,
+            "position_encoding": "dynamic_sinusoidal",
             "use_attention": self.use_attention,
             "use_recurrent": self.use_recurrent,
             "handcrafted_logits": False,

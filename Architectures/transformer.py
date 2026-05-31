@@ -8,6 +8,7 @@ import torch.nn as nn
 from typing import Dict, Any
 import math
 from .base_architecture import BaseArchitecture
+from .positional import DynamicSinusoidalPositionEncoding
 
 
 class MultiHeadAttention(nn.Module):
@@ -117,12 +118,13 @@ class TransformerArchitecture(BaseArchitecture):
         self.num_layers = config.get('num_layers', 2)
         self.num_heads = config.get('num_heads', 4)
         self.d_ff = config.get('d_ff', 512)
-        self.max_seq_len = config.get('max_seq_len', 128)
+        self.max_seq_len = config.get('max_seq_len', config.get('max_context_len', 128))
+        self.max_context_len = config.get('max_context_len', self.max_seq_len)
         self.dropout = config.get('dropout', 0.1)
         
         # Embedding layers
         self.token_embedding = nn.Embedding(self.vocab_size, self.d_model)
-        self.positional_embedding = nn.Embedding(self.max_seq_len, self.d_model)
+        self.positional_encoding = DynamicSinusoidalPositionEncoding(self.d_model)
         
         # Transformer layers
         self.transformer_blocks = nn.ModuleList([
@@ -162,8 +164,7 @@ class TransformerArchitecture(BaseArchitecture):
         
         # Embeddings
         token_emb = self.token_embedding(x)
-        pos_ids = torch.arange(seq_len, device=x.device).unsqueeze(0).expand(batch_size, -1)
-        pos_emb = self.positional_embedding(pos_ids)
+        pos_emb = self.positional_encoding(batch_size, seq_len, x.device, token_emb.dtype)
         
         x = self.dropout_layer(token_emb + pos_emb)
         
@@ -185,6 +186,9 @@ class TransformerArchitecture(BaseArchitecture):
             'num_heads': self.num_heads,
             'd_ff': self.d_ff,
             'max_seq_len': self.max_seq_len,
+            'max_context_len': self.max_context_len,
+            'position_encoding': 'dynamic_sinusoidal',
+            'long_context_safe': True,
             'dropout': self.dropout,
             'description': 'Classic Transformer with Multi-Head Self-Attention'
         }
