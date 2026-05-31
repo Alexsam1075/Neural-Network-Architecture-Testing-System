@@ -1,0 +1,830 @@
+{
+  "ApexFactorSeedSolverPlus": {
+    "DistractorRetrieval": {
+      "accuracy": 0.0234375,
+      "correct_predictions": 3,
+      "total_predictions": 128,
+      "distractor_pick_rate": 0.0390625,
+      "training_time_seconds": 0.4755980968475342,
+      "evaluation_time_seconds": 0.012000083923339844,
+      "inference_speed": 10666.592068664071,
+      "train_loss_initial": 5.061781088511149,
+      "train_loss_final": 3.0035463770230613,
+      "num_samples": 384,
+      "num_eval_samples": 128,
+      "sequence_length": 32,
+      "epochs": 6,
+      "batch_size": 32
+    },
+    "UltraLongContext": {
+      "accuracy": 0.0,
+      "long_context_score": 0.0,
+      "support_score": 1.0,
+      "context_multiplier": 0.0,
+      "exact_supported_count": 2,
+      "estimated_supported_count": 5,
+      "context_retention_rate": 0.0,
+      "context_used_count": 0,
+      "context_checked_count": 2,
+      "exact_pass_rate": 1.0,
+      "exact_attempted": 2,
+      "exact_passed": 2,
+      "largest_exact_passed": 10000,
+      "declared_limit_probe": {
+        "status": "passed",
+        "elapsed_seconds": 0.0020003318786621094,
+        "tokens_per_second": 63989.38164481526,
+        "output_shape": [
+          1,
+          128,
+          256
+        ],
+        "peak_memory_mb": 17.80810546875,
+        "last_token_prediction": 40,
+        "probe_length": 128
+      },
+      "declared_limit_supported": true,
+      "target_lengths": [
+        1000,
+        10000,
+        100000,
+        1000000,
+        1000000000
+      ],
+      "batch_size": 1,
+      "exact_token_limit": 10000,
+      "memory_budget_mb": 1024,
+      "quadratic_detected": false,
+      "declared_max_seq_len": 128,
+      "long_context_safe": true,
+      "per_length": {
+        "1000": {
+          "length": 1000,
+          "estimated_output_memory_mb": 0.9765625,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": true,
+          "status": "passed",
+          "elapsed_seconds": 0.0009996891021728516,
+          "tokens_per_second": 1000310.9945146673,
+          "output_shape": [
+            1,
+            1000,
+            256
+          ],
+          "peak_memory_mb": 19.63916015625,
+          "last_token_prediction": 40,
+          "context_probe_length": 512,
+          "context_used": false,
+          "context_output_max_delta": 0.0,
+          "context_output_mean_delta": 0.0
+        },
+        "10000": {
+          "length": 10000,
+          "estimated_output_memory_mb": 9.765625,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": true,
+          "status": "passed",
+          "elapsed_seconds": 0.003999233245849609,
+          "tokens_per_second": 2500479.313222845,
+          "output_shape": [
+            1,
+            10000,
+            256
+          ],
+          "peak_memory_mb": 38.521484375,
+          "last_token_prediction": 40,
+          "context_probe_length": 512,
+          "context_used": false,
+          "context_output_max_delta": 0.0,
+          "context_output_mean_delta": 0.0
+        },
+        "100000": {
+          "length": 100000,
+          "estimated_output_memory_mb": 97.65625,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": true,
+          "status": "estimated_only",
+          "skip_reason": "above_exact_token_limit",
+          "estimated_min_output_gb": 0.095367431640625
+        },
+        "1000000": {
+          "length": 1000000,
+          "estimated_output_memory_mb": 976.5625,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": true,
+          "status": "estimated_only",
+          "skip_reason": "above_exact_token_limit",
+          "estimated_min_output_gb": 0.95367431640625
+        },
+        "1000000000": {
+          "length": 1000000000,
+          "estimated_output_memory_mb": 976562.5,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": true,
+          "status": "estimated_only",
+          "skip_reason": "estimated_output_memory_over_budget",
+          "estimated_min_output_gb": 953.67431640625
+        }
+      }
+    }
+  },
+  "ApexFactorSeedSolver": {
+    "DistractorRetrieval": {
+      "accuracy": 0.046875,
+      "correct_predictions": 6,
+      "total_predictions": 128,
+      "distractor_pick_rate": 0.7734375,
+      "training_time_seconds": 0.2212202548980713,
+      "evaluation_time_seconds": 0.0039997100830078125,
+      "inference_speed": 32002.31950405341,
+      "train_loss_initial": 5.038354833920796,
+      "train_loss_final": 3.022292673587799,
+      "num_samples": 384,
+      "num_eval_samples": 128,
+      "sequence_length": 32,
+      "epochs": 6,
+      "batch_size": 32
+    },
+    "UltraLongContext": {
+      "accuracy": 0.0,
+      "long_context_score": 0.0,
+      "support_score": 1.0,
+      "context_multiplier": 0.0,
+      "exact_supported_count": 2,
+      "estimated_supported_count": 5,
+      "context_retention_rate": 0.0,
+      "context_used_count": 0,
+      "context_checked_count": 2,
+      "exact_pass_rate": 1.0,
+      "exact_attempted": 2,
+      "exact_passed": 2,
+      "largest_exact_passed": 10000,
+      "declared_limit_probe": {
+        "status": "passed",
+        "elapsed_seconds": 0.0009999275207519531,
+        "tokens_per_second": 128009.27801621363,
+        "output_shape": [
+          1,
+          128,
+          256
+        ],
+        "peak_memory_mb": 17.80810546875,
+        "last_token_prediction": 161,
+        "probe_length": 128
+      },
+      "declared_limit_supported": true,
+      "target_lengths": [
+        1000,
+        10000,
+        100000,
+        1000000,
+        1000000000
+      ],
+      "batch_size": 1,
+      "exact_token_limit": 10000,
+      "memory_budget_mb": 1024,
+      "quadratic_detected": false,
+      "declared_max_seq_len": 128,
+      "long_context_safe": true,
+      "per_length": {
+        "1000": {
+          "length": 1000,
+          "estimated_output_memory_mb": 0.9765625,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": true,
+          "status": "passed",
+          "elapsed_seconds": 0.0009999275207519531,
+          "tokens_per_second": 1000072.4845016691,
+          "output_shape": [
+            1,
+            1000,
+            256
+          ],
+          "peak_memory_mb": 19.63916015625,
+          "last_token_prediction": 95,
+          "context_probe_length": 512,
+          "context_used": false,
+          "context_output_max_delta": 0.0,
+          "context_output_mean_delta": 0.0
+        },
+        "10000": {
+          "length": 10000,
+          "estimated_output_memory_mb": 9.765625,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": true,
+          "status": "passed",
+          "elapsed_seconds": 0.001999378204345703,
+          "tokens_per_second": 5001554.972573336,
+          "output_shape": [
+            1,
+            10000,
+            256
+          ],
+          "peak_memory_mb": 38.521484375,
+          "last_token_prediction": 230,
+          "context_probe_length": 512,
+          "context_used": false,
+          "context_output_max_delta": 0.0,
+          "context_output_mean_delta": 0.0
+        },
+        "100000": {
+          "length": 100000,
+          "estimated_output_memory_mb": 97.65625,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": true,
+          "status": "estimated_only",
+          "skip_reason": "above_exact_token_limit",
+          "estimated_min_output_gb": 0.095367431640625
+        },
+        "1000000": {
+          "length": 1000000,
+          "estimated_output_memory_mb": 976.5625,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": true,
+          "status": "estimated_only",
+          "skip_reason": "above_exact_token_limit",
+          "estimated_min_output_gb": 0.95367431640625
+        },
+        "1000000000": {
+          "length": 1000000000,
+          "estimated_output_memory_mb": 976562.5,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": true,
+          "status": "estimated_only",
+          "skip_reason": "estimated_output_memory_over_budget",
+          "estimated_min_output_gb": 953.67431640625
+        }
+      }
+    }
+  },
+  "ApexSeedSolver": {
+    "DistractorRetrieval": {
+      "accuracy": 0.03125,
+      "correct_predictions": 4,
+      "total_predictions": 128,
+      "distractor_pick_rate": 0.234375,
+      "training_time_seconds": 0.19945120811462402,
+      "evaluation_time_seconds": 0.004000186920166016,
+      "inference_speed": 31998.504708546905,
+      "train_loss_initial": 4.923808773358663,
+      "train_loss_final": 3.0028112332026162,
+      "num_samples": 384,
+      "num_eval_samples": 128,
+      "sequence_length": 32,
+      "epochs": 6,
+      "batch_size": 32
+    },
+    "UltraLongContext": {
+      "accuracy": 0.0,
+      "long_context_score": 0.0,
+      "support_score": 0.0,
+      "context_multiplier": 1.0,
+      "exact_supported_count": 0,
+      "estimated_supported_count": 0,
+      "context_retention_rate": 0.0,
+      "context_used_count": 0,
+      "context_checked_count": 0,
+      "exact_pass_rate": 0.0,
+      "exact_attempted": 0,
+      "exact_passed": 0,
+      "largest_exact_passed": 0,
+      "declared_limit_probe": {
+        "status": "passed",
+        "elapsed_seconds": 0.01200103759765625,
+        "tokens_per_second": 10665.744437380801,
+        "output_shape": [
+          1,
+          128,
+          256
+        ],
+        "peak_memory_mb": null,
+        "last_token_prediction": 145,
+        "probe_length": 128
+      },
+      "declared_limit_supported": true,
+      "target_lengths": [
+        1000,
+        10000,
+        100000,
+        1000000,
+        1000000000
+      ],
+      "batch_size": 1,
+      "exact_token_limit": 10000,
+      "memory_budget_mb": 1024,
+      "quadratic_detected": false,
+      "declared_max_seq_len": 128,
+      "long_context_safe": false,
+      "per_length": {
+        "1000": {
+          "length": 1000,
+          "estimated_output_memory_mb": 0.9765625,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.00095367431640625
+        },
+        "10000": {
+          "length": 10000,
+          "estimated_output_memory_mb": 9.765625,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.0095367431640625
+        },
+        "100000": {
+          "length": 100000,
+          "estimated_output_memory_mb": 97.65625,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.095367431640625
+        },
+        "1000000": {
+          "length": 1000000,
+          "estimated_output_memory_mb": 976.5625,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.95367431640625
+        },
+        "1000000000": {
+          "length": 1000000000,
+          "estimated_output_memory_mb": 976562.5,
+          "quadratic_risk": false,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 953.67431640625
+        }
+      }
+    }
+  },
+  "AIONLongMemoryCore": {
+    "DistractorRetrieval": {
+      "accuracy": 1.0,
+      "correct_predictions": 128,
+      "total_predictions": 128,
+      "distractor_pick_rate": 0.0703125,
+      "training_time_seconds": 0.3795747756958008,
+      "evaluation_time_seconds": 0.0060002803802490234,
+      "inference_speed": 21332.336472364605,
+      "train_loss_initial": 5.048496961593628,
+      "train_loss_final": 1.542308747768402,
+      "num_samples": 384,
+      "num_eval_samples": 128,
+      "sequence_length": 32,
+      "epochs": 6,
+      "batch_size": 32
+    },
+    "UltraLongContext": {
+      "accuracy": 0.0,
+      "long_context_score": 0.0,
+      "support_score": 0.0,
+      "context_multiplier": 1.0,
+      "exact_supported_count": 0,
+      "estimated_supported_count": 0,
+      "context_retention_rate": 0.0,
+      "context_used_count": 0,
+      "context_checked_count": 0,
+      "exact_pass_rate": 0.0,
+      "exact_attempted": 0,
+      "exact_passed": 0,
+      "largest_exact_passed": 0,
+      "declared_limit_probe": {
+        "status": "passed",
+        "elapsed_seconds": 0.004000663757324219,
+        "tokens_per_second": 31994.69082240763,
+        "output_shape": [
+          1,
+          128,
+          256
+        ],
+        "peak_memory_mb": null,
+        "last_token_prediction": 202,
+        "probe_length": 128
+      },
+      "declared_limit_supported": true,
+      "target_lengths": [
+        1000,
+        10000,
+        100000,
+        1000000,
+        1000000000
+      ],
+      "batch_size": 1,
+      "exact_token_limit": 10000,
+      "memory_budget_mb": 1024,
+      "quadratic_detected": true,
+      "declared_max_seq_len": 128,
+      "long_context_safe": false,
+      "per_length": {
+        "1000": {
+          "length": 1000,
+          "estimated_output_memory_mb": 0.9765625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.00095367431640625
+        },
+        "10000": {
+          "length": 10000,
+          "estimated_output_memory_mb": 9.765625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.0095367431640625
+        },
+        "100000": {
+          "length": 100000,
+          "estimated_output_memory_mb": 97.65625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.095367431640625
+        },
+        "1000000": {
+          "length": 1000000,
+          "estimated_output_memory_mb": 976.5625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.95367431640625
+        },
+        "1000000000": {
+          "length": 1000000000,
+          "estimated_output_memory_mb": 976562.5,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 953.67431640625
+        }
+      }
+    }
+  },
+  "AIONLongMemoryCoreV2": {
+    "DistractorRetrieval": {
+      "accuracy": 1.0,
+      "correct_predictions": 128,
+      "total_predictions": 128,
+      "distractor_pick_rate": 0.0703125,
+      "training_time_seconds": 0.3428952693939209,
+      "evaluation_time_seconds": 0.00599980354309082,
+      "inference_speed": 21334.03186966024,
+      "train_loss_initial": 4.988829970359802,
+      "train_loss_final": 1.5847206612428029,
+      "num_samples": 384,
+      "num_eval_samples": 128,
+      "sequence_length": 32,
+      "epochs": 6,
+      "batch_size": 32
+    },
+    "UltraLongContext": {
+      "accuracy": 0.0,
+      "long_context_score": 0.0,
+      "support_score": 0.0,
+      "context_multiplier": 1.0,
+      "exact_supported_count": 0,
+      "estimated_supported_count": 0,
+      "context_retention_rate": 0.0,
+      "context_used_count": 0,
+      "context_checked_count": 0,
+      "exact_pass_rate": 0.0,
+      "exact_attempted": 0,
+      "exact_passed": 0,
+      "largest_exact_passed": 0,
+      "declared_limit_probe": {
+        "status": "passed",
+        "elapsed_seconds": 0.0020003318786621094,
+        "tokens_per_second": 63989.38164481526,
+        "output_shape": [
+          1,
+          128,
+          256
+        ],
+        "peak_memory_mb": null,
+        "last_token_prediction": 92,
+        "probe_length": 128
+      },
+      "declared_limit_supported": true,
+      "target_lengths": [
+        1000,
+        10000,
+        100000,
+        1000000,
+        1000000000
+      ],
+      "batch_size": 1,
+      "exact_token_limit": 10000,
+      "memory_budget_mb": 1024,
+      "quadratic_detected": true,
+      "declared_max_seq_len": 128,
+      "long_context_safe": false,
+      "per_length": {
+        "1000": {
+          "length": 1000,
+          "estimated_output_memory_mb": 0.9765625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.00095367431640625
+        },
+        "10000": {
+          "length": 10000,
+          "estimated_output_memory_mb": 9.765625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.0095367431640625
+        },
+        "100000": {
+          "length": 100000,
+          "estimated_output_memory_mb": 97.65625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.095367431640625
+        },
+        "1000000": {
+          "length": 1000000,
+          "estimated_output_memory_mb": 976.5625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.95367431640625
+        },
+        "1000000000": {
+          "length": 1000000000,
+          "estimated_output_memory_mb": 976562.5,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 953.67431640625
+        }
+      }
+    }
+  },
+  "AIONLongMemoryCoreV3": {
+    "DistractorRetrieval": {
+      "accuracy": 0.96875,
+      "correct_predictions": 124,
+      "total_predictions": 128,
+      "distractor_pick_rate": 0.0703125,
+      "training_time_seconds": 0.3551011085510254,
+      "evaluation_time_seconds": 0.00800013542175293,
+      "inference_speed": 15999.729161078825,
+      "train_loss_initial": 5.223169287045796,
+      "train_loss_final": 1.8889831602573395,
+      "num_samples": 384,
+      "num_eval_samples": 128,
+      "sequence_length": 32,
+      "epochs": 6,
+      "batch_size": 32
+    },
+    "UltraLongContext": {
+      "accuracy": 0.0,
+      "long_context_score": 0.0,
+      "support_score": 0.0,
+      "context_multiplier": 1.0,
+      "exact_supported_count": 0,
+      "estimated_supported_count": 0,
+      "context_retention_rate": 0.0,
+      "context_used_count": 0,
+      "context_checked_count": 0,
+      "exact_pass_rate": 0.0,
+      "exact_attempted": 0,
+      "exact_passed": 0,
+      "largest_exact_passed": 0,
+      "declared_limit_probe": {
+        "status": "passed",
+        "elapsed_seconds": 0.002000570297241211,
+        "tokens_per_second": 63981.75569062091,
+        "output_shape": [
+          1,
+          128,
+          256
+        ],
+        "peak_memory_mb": null,
+        "last_token_prediction": 5,
+        "probe_length": 128
+      },
+      "declared_limit_supported": true,
+      "target_lengths": [
+        1000,
+        10000,
+        100000,
+        1000000,
+        1000000000
+      ],
+      "batch_size": 1,
+      "exact_token_limit": 10000,
+      "memory_budget_mb": 1024,
+      "quadratic_detected": true,
+      "declared_max_seq_len": 128,
+      "long_context_safe": false,
+      "per_length": {
+        "1000": {
+          "length": 1000,
+          "estimated_output_memory_mb": 0.9765625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.00095367431640625
+        },
+        "10000": {
+          "length": 10000,
+          "estimated_output_memory_mb": 9.765625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.0095367431640625
+        },
+        "100000": {
+          "length": 100000,
+          "estimated_output_memory_mb": 97.65625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.095367431640625
+        },
+        "1000000": {
+          "length": 1000000,
+          "estimated_output_memory_mb": 976.5625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.95367431640625
+        },
+        "1000000000": {
+          "length": 1000000000,
+          "estimated_output_memory_mb": 976562.5,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 953.67431640625
+        }
+      }
+    }
+  },
+  "AIONLongMemoryCoreV4": {
+    "DistractorRetrieval": {
+      "accuracy": 0.8359375,
+      "correct_predictions": 107,
+      "total_predictions": 128,
+      "distractor_pick_rate": 0.234375,
+      "training_time_seconds": 0.37329769134521484,
+      "evaluation_time_seconds": 0.0070002079010009766,
+      "inference_speed": 18285.171213514524,
+      "train_loss_initial": 4.86327064037323,
+      "train_loss_final": 1.984321763118108,
+      "num_samples": 384,
+      "num_eval_samples": 128,
+      "sequence_length": 32,
+      "epochs": 6,
+      "batch_size": 32
+    },
+    "UltraLongContext": {
+      "accuracy": 0.0,
+      "long_context_score": 0.0,
+      "support_score": 0.0,
+      "context_multiplier": 1.0,
+      "exact_supported_count": 0,
+      "estimated_supported_count": 0,
+      "context_retention_rate": 0.0,
+      "context_used_count": 0,
+      "context_checked_count": 0,
+      "exact_pass_rate": 0.0,
+      "exact_attempted": 0,
+      "exact_passed": 0,
+      "largest_exact_passed": 0,
+      "declared_limit_probe": {
+        "status": "passed",
+        "elapsed_seconds": 0.0030002593994140625,
+        "tokens_per_second": 42662.977749523205,
+        "output_shape": [
+          1,
+          128,
+          256
+        ],
+        "peak_memory_mb": null,
+        "last_token_prediction": 27,
+        "probe_length": 128
+      },
+      "declared_limit_supported": true,
+      "target_lengths": [
+        1000,
+        10000,
+        100000,
+        1000000,
+        1000000000
+      ],
+      "batch_size": 1,
+      "exact_token_limit": 10000,
+      "memory_budget_mb": 1024,
+      "quadratic_detected": true,
+      "declared_max_seq_len": 128,
+      "long_context_safe": false,
+      "per_length": {
+        "1000": {
+          "length": 1000,
+          "estimated_output_memory_mb": 0.9765625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.00095367431640625
+        },
+        "10000": {
+          "length": 10000,
+          "estimated_output_memory_mb": 9.765625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.0095367431640625
+        },
+        "100000": {
+          "length": 100000,
+          "estimated_output_memory_mb": 97.65625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.095367431640625
+        },
+        "1000000": {
+          "length": 1000000,
+          "estimated_output_memory_mb": 976.5625,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 0.95367431640625
+        },
+        "1000000000": {
+          "length": 1000000000,
+          "estimated_output_memory_mb": 976562.5,
+          "quadratic_risk": true,
+          "declared_max_seq_len": 128,
+          "long_context_safe": false,
+          "status": "estimated_only",
+          "skip_reason": "declared_position_limit",
+          "estimated_min_output_gb": 953.67431640625
+        }
+      }
+    }
+  }
+}

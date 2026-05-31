@@ -1,0 +1,15 @@
+{
+  "NumberSequence": "f8674287",
+  "NextToken": "f7f0909d",
+  "LongRange": "02df1496",
+  "NoiseRobustness": "1caa9ded",
+  "Generalization": "5e37a2d5",
+  "LengthExtrapolation": "b1cb534e",
+  "DistractorRetrieval": "df624f4a",
+  "CausalMaskStability": "68c842bd",
+  "StructuredGeneration": "1f9e0991",
+  "RareTokenGeneration": "9eddd184",
+  "AlgorithmicRollout": "47be6da7",
+  "RepetitionCollapse": "10d8fada",
+  "UltraLongContext": "8cc62e75"
+}

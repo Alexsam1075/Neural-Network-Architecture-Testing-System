@@ -1,0 +1,60 @@
+================================================================================
+ARCHITECTURE COMPARISON REPORT v3.0
+================================================================================
+
+
+────────────────────────────────────────────────────────────────────────────────
+TEST: DistractorRetrieval
+────────────────────────────────────────────────────────────────────────────────
+
+ACCURACY:
+   1. AIONLongMemoryCore        1.0000
+   2. AIONLongMemoryCoreV2      1.0000
+   3. AIONLongMemoryCoreV3      0.9688
+   4. AIONLongMemoryCoreV4      0.8359
+   5. ApexFactorSeedSolver      0.0469
+   6. ApexSeedSolver            0.0312
+   7. ApexFactorSeedSolverPlus  0.0234
+
+TRAINING SPEED (faster is better):
+   1. ApexSeedSolver            0.20s (5013.8 samples/sec)
+   2. ApexFactorSeedSolver      0.22s (4520.4 samples/sec)
+   3. AIONLongMemoryCoreV2      0.34s (2916.3 samples/sec)
+   4. AIONLongMemoryCoreV3      0.36s (2816.1 samples/sec)
+   5. AIONLongMemoryCoreV4      0.37s (2678.8 samples/sec)
+   6. AIONLongMemoryCore        0.38s (2634.5 samples/sec)
+   7. ApexFactorSeedSolverPlus  0.48s (2102.6 samples/sec)
+
+INFERENCE SPEED (predictions/sec):
+   1. ApexFactorSeedSolver      32002.3
+   2. ApexSeedSolver            31998.5
+   3. AIONLongMemoryCoreV2      21334.0
+   4. AIONLongMemoryCore        21332.3
+   5. AIONLongMemoryCoreV4      18285.2
+   6. AIONLongMemoryCoreV3      15999.7
+   7. ApexFactorSeedSolverPlus  10666.6
+
+
+────────────────────────────────────────────────────────────────────────────────
+TEST: UltraLongContext
+────────────────────────────────────────────────────────────────────────────────
+
+ACCURACY:
+   1. ApexFactorSeedSolverPlus  0.0000
+   2. ApexFactorSeedSolver      0.0000
+   3. ApexSeedSolver            0.0000
+   4. AIONLongMemoryCore        0.0000
+   5. AIONLongMemoryCoreV2      0.0000
+   6. AIONLongMemoryCoreV3      0.0000
+   7. AIONLongMemoryCoreV4      0.0000
+
+TRAINING SPEED (faster is better):
+
+INFERENCE SPEED (predictions/sec):
+   1. ApexFactorSeedSolverPlus  0.0
+   2. ApexFactorSeedSolver      0.0
+   3. ApexSeedSolver            0.0
+   4. AIONLongMemoryCore        0.0
+   5. AIONLongMemoryCoreV2      0.0
+   6. AIONLongMemoryCoreV3      0.0
+   7. AIONLongMemoryCoreV4      0.0
