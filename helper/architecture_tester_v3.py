@@ -190,6 +190,12 @@ class ArchitectureTesterV3:
             ('FutureLinearMemory', FutureLinearMemory),
             ('FutureRetentionNet', FutureRetentionNet),
             ('FutureRareTokenMixer', FutureRareTokenMixer),
+            # v13.0 Research architectures
+            ('SuperKvas', SuperKvas),
+            ('Pacani', Pacani),
+            ('ChickenMacNuggets', ChickenMacNuggets),
+            ('SuperKvasLite', SuperKvasLite),
+            ('KvasShift', KvasShift),
         ]
         
         for name, cls in arch_classes:

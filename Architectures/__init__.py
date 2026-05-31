@@ -68,6 +68,11 @@ from .aion_long_memory_core import (
     AIONLongMemoryCoreV4,
 )
 from .future_architectures import FutureLinearMemory, FutureRetentionNet, FutureRareTokenMixer
+from .super_kvas import SuperKvas
+from .pacani import Pacani
+from .chicken_mac_nuggets import ChickenMacNuggets
+from .super_kvas_lite import SuperKvasLite
+from .kvas_shift import KvasShift
 
 __all__ = [
     'BaseArchitecture',
@@ -157,6 +162,11 @@ __all__ = [
     'FutureLinearMemory',
     'FutureRetentionNet',
     'FutureRareTokenMixer',
+    'SuperKvas',
+    'Pacani',
+    'ChickenMacNuggets',
+    'SuperKvasLite',
+    'KvasShift',
 ]
 
 # New v4.0 - Batch 2 (already imported above, adding to __all__ via tail)
