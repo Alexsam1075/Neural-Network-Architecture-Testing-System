@@ -67,6 +67,7 @@ from .aion_long_memory_core import (
     AIONLongMemoryCoreV3,
     AIONLongMemoryCoreV4,
 )
+from .future_architectures import FutureLinearMemory, FutureRetentionNet, FutureRareTokenMixer
 
 __all__ = [
     'BaseArchitecture',
@@ -153,6 +154,9 @@ __all__ = [
     'AIONLongMemoryCoreV2',
     'AIONLongMemoryCoreV3',
     'AIONLongMemoryCoreV4',
+    'FutureLinearMemory',
+    'FutureRetentionNet',
+    'FutureRareTokenMixer',
 ]
 
 # New v4.0 - Batch 2 (already imported above, adding to __all__ via tail)

@@ -186,6 +186,10 @@ class ArchitectureTesterV3:
             ('AIONLongMemoryCoreV2', AIONLongMemoryCoreV2),
             ('AIONLongMemoryCoreV3', AIONLongMemoryCoreV3),
             ('AIONLongMemoryCoreV4', AIONLongMemoryCoreV4),
+            # v12.0 Future architectures
+            ('FutureLinearMemory', FutureLinearMemory),
+            ('FutureRetentionNet', FutureRetentionNet),
+            ('FutureRareTokenMixer', FutureRareTokenMixer),
         ]
         
         for name, cls in arch_classes:

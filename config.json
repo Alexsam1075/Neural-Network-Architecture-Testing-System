@@ -18,7 +18,10 @@
     "AIONLongMemoryCore",
     "AIONLongMemoryCoreV2",
     "AIONLongMemoryCoreV3",
-    "AIONLongMemoryCoreV4"
+    "AIONLongMemoryCoreV4",
+    "FutureLinearMemory",
+    "FutureRetentionNet",
+    "FutureRareTokenMixer"
   ],
   "anti_cheat_allowlist": [
     "Transformer",
@@ -35,7 +38,10 @@
     "AIONLongMemoryCore",
     "AIONLongMemoryCoreV2",
     "AIONLongMemoryCoreV3",
-    "AIONLongMemoryCoreV4"
+    "AIONLongMemoryCoreV4",
+    "FutureLinearMemory",
+    "FutureRetentionNet",
+    "FutureRareTokenMixer"
   ],
   "architectures": {
     "Transformer": {
@@ -549,6 +555,30 @@
       "d_model": 72,
       "num_layers": 1,
       "max_seq_len": 128
+    },
+    "FutureLinearMemory": {
+      "vocab_size": 256,
+      "d_model": 96,
+      "num_layers": 2,
+      "num_heads": 4,
+      "feature_dim": 32,
+      "max_context_len": 1000000,
+      "dropout": 0.05
+    },
+    "FutureRetentionNet": {
+      "vocab_size": 256,
+      "d_model": 80,
+      "num_layers": 2,
+      "retention_scales": 4,
+      "max_context_len": 1000000,
+      "dropout": 0.05
+    },
+    "FutureRareTokenMixer": {
+      "vocab_size": 256,
+      "d_model": 88,
+      "num_layers": 3,
+      "max_context_len": 1000000,
+      "dropout": 0.05
     }
   },
   "tests": {
