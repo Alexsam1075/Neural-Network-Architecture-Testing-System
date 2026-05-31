@@ -32,6 +32,17 @@ from Tests.ultra_long_context_test import UltraLongContextTest
 from Tests.base_test import BaseTest
 from Tests.anti_cheat import audit_architecture_class
 from Tests.stack_tracker_test import StackTrackerTest
+from Tests.exact_copy_test import ExactCopyTest
+from Tests.reverse_copy_test import ReverseCopyTest
+from Tests.needle_in_haystack_test import NeedleInHaystackTest
+from Tests.cross_position_binding_test import CrossPositionBindingTest
+from Tests.gradient_flow_test import GradientFlowTest
+from Tests.early_learning_signal_test import EarlyLearningSignalTest
+from Tests.basic_icl_test import BasicICLTest
+from Tests.icl_novel_task_test import ICLNovelTaskTest
+from Tests.inference_latency_test import InferenceLatencyTest
+from Tests.memory_footprint_test import MemoryFootprintTest
+from Tests.autoregressive_efficiency_test import AutoregressiveEfficiencyTest
 
 
 class ArchitectureTesterV3:
@@ -213,6 +224,17 @@ class ArchitectureTesterV3:
             'RepetitionCollapse': RepetitionCollapseTest,
             'UltraLongContext': UltraLongContextTest,
             'StackTracker': StackTrackerTest,
+            'ExactCopy': ExactCopyTest,
+            'ReverseCopy': ReverseCopyTest,
+            'NeedleInHaystack': NeedleInHaystackTest,
+            'CrossPositionBinding': CrossPositionBindingTest,
+            'GradientFlow': GradientFlowTest,
+            'EarlyLearningSignal': EarlyLearningSignalTest,
+            'BasicICL': BasicICLTest,
+            'ICLNovelTask': ICLNovelTaskTest,
+            'InferenceLatency': InferenceLatencyTest,
+            'MemoryFootprint': MemoryFootprintTest,
+            'AutoregressiveEfficiency': AutoregressiveEfficiencyTest,
         }
         
         return tests

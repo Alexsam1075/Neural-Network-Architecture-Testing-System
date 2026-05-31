@@ -681,6 +681,102 @@
       "max_stack_depth": 8,
       "stack_symbols": 24,
       "random_seed": 1337
+    },
+    "ExactCopy": {
+      "seq_length": 48,
+      "copy_length": 24,
+      "num_samples": 512,
+      "num_eval_samples": 128,
+      "batch_size": 32,
+      "epochs": 6,
+      "learning_rate": 0.001,
+      "random_seed": 1337
+    },
+    "ReverseCopy": {
+      "seq_length": 48,
+      "copy_length": 24,
+      "num_samples": 512,
+      "num_eval_samples": 128,
+      "batch_size": 32,
+      "epochs": 6,
+      "learning_rate": 0.001,
+      "random_seed": 1337
+    },
+    "NeedleInHaystack": {
+      "seq_length": 64,
+      "num_pairs": 24,
+      "num_samples": 512,
+      "num_eval_samples": 128,
+      "batch_size": 32,
+      "epochs": 6,
+      "learning_rate": 0.001,
+      "random_seed": 1337
+    },
+    "CrossPositionBinding": {
+      "seq_length": 56,
+      "num_bindings": 12,
+      "num_samples": 512,
+      "num_eval_samples": 128,
+      "batch_size": 32,
+      "epochs": 6,
+      "learning_rate": 0.001,
+      "random_seed": 1337
+    },
+    "GradientFlow": {
+      "seq_length": 48,
+      "num_samples": 512,
+      "num_eval_samples": 128,
+      "batch_size": 32,
+      "epochs": 5,
+      "learning_rate": 0.001,
+      "exploding_grad_threshold": 5.0,
+      "random_seed": 1337
+    },
+    "EarlyLearningSignal": {
+      "seq_length": 36,
+      "num_samples": 384,
+      "num_eval_samples": 128,
+      "batch_size": 32,
+      "epochs": 3,
+      "learning_rate": 0.001,
+      "random_seed": 1337
+    },
+    "BasicICL": {
+      "seq_length": 40,
+      "num_shots": 5,
+      "num_samples": 512,
+      "num_eval_samples": 128,
+      "batch_size": 32,
+      "epochs": 6,
+      "learning_rate": 0.001,
+      "random_seed": 1337
+    },
+    "ICLNovelTask": {
+      "seq_length": 40,
+      "num_shots": 5,
+      "num_samples": 512,
+      "num_eval_samples": 128,
+      "batch_size": 32,
+      "epochs": 6,
+      "learning_rate": 0.001,
+      "random_seed": 1337
+    },
+    "InferenceLatency": {
+      "batch_size": 8,
+      "latency_lengths": [16, 64, 128],
+      "latency_repeats": 8,
+      "random_seed": 1337
+    },
+    "MemoryFootprint": {
+      "batch_size": 8,
+      "memory_lengths": [32, 128, 512],
+      "random_seed": 1337
+    },
+    "AutoregressiveEfficiency": {
+      "prompt_length": 24,
+      "generate_steps": 32,
+      "batch_size": 4,
+      "random_seed": 1337
     }
   }
 }
