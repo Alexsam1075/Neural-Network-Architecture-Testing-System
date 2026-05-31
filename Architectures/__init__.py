@@ -84,6 +84,7 @@ from .sweety_core import (
     SweetyCoreStream,
 )
 from .cool_train import CoolTrainLite, CoolTrainBalanced, CoolTrainExpress
+from .infinite_context import InfiniteContextLite, InfiniteContextCore, InfiniteContextPro
 
 __all__ = [
     'BaseArchitecture',
@@ -189,6 +190,9 @@ __all__ = [
     'CoolTrainLite',
     'CoolTrainBalanced',
     'CoolTrainExpress',
+    'InfiniteContextLite',
+    'InfiniteContextCore',
+    'InfiniteContextPro',
 ]
 
 # New v4.0 - Batch 2 (already imported above, adding to __all__ via tail)

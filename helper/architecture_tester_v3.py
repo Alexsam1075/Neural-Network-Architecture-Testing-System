@@ -209,6 +209,10 @@ class ArchitectureTesterV3:
             ('CoolTrainLite', CoolTrainLite),
             ('CoolTrainBalanced', CoolTrainBalanced),
             ('CoolTrainExpress', CoolTrainExpress),
+            # v16.0 Infinite context architectures
+            ('InfiniteContextLite', InfiniteContextLite),
+            ('InfiniteContextCore', InfiniteContextCore),
+            ('InfiniteContextPro', InfiniteContextPro),
         ]
         
         for name, cls in arch_classes:

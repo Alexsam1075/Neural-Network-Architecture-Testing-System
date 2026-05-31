@@ -37,7 +37,10 @@
     "SweetyCoreStream",
     "CoolTrainLite",
     "CoolTrainBalanced",
-    "CoolTrainExpress"
+    "CoolTrainExpress",
+    "InfiniteContextLite",
+    "InfiniteContextCore",
+    "InfiniteContextPro"
   ],
   "anti_cheat_allowlist": [
     "Transformer",
@@ -73,7 +76,10 @@
     "SweetyCoreStream",
     "CoolTrainLite",
     "CoolTrainBalanced",
-    "CoolTrainExpress"
+    "CoolTrainExpress",
+    "InfiniteContextLite",
+    "InfiniteContextCore",
+    "InfiniteContextPro"
   ],
   "architectures": {
     "Transformer": {
@@ -743,6 +749,39 @@
       "ff_mult": 2,
       "max_context_len": 1000000,
       "dropout": 0.02
+    },
+    "InfiniteContextLite": {
+      "vocab_size": 256,
+      "d_model": 80,
+      "num_layers": 1,
+      "num_heads": 4,
+      "feature_dim": 24,
+      "memory_scales": 3,
+      "ff_mult": 2,
+      "max_context_len": 1000000000,
+      "dropout": 0.02
+    },
+    "InfiniteContextCore": {
+      "vocab_size": 256,
+      "d_model": 96,
+      "num_layers": 2,
+      "num_heads": 4,
+      "feature_dim": 32,
+      "memory_scales": 4,
+      "ff_mult": 2,
+      "max_context_len": 1000000000,
+      "dropout": 0.03
+    },
+    "InfiniteContextPro": {
+      "vocab_size": 256,
+      "d_model": 128,
+      "num_layers": 2,
+      "num_heads": 4,
+      "feature_dim": 32,
+      "memory_scales": 4,
+      "ff_mult": 3,
+      "max_context_len": 1000000000,
+      "dropout": 0.03
     }
   },
   "tests": {
