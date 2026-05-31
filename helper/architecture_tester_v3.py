@@ -196,6 +196,9 @@ class ArchitectureTesterV3:
             ('ChickenMacNuggets', ChickenMacNuggets),
             ('SuperKvasLite', SuperKvasLite),
             ('KvasShift', KvasShift),
+            ('KvasFusion', KvasFusion),
+            ('KvasFusionSoft', KvasFusionSoft),
+            ('SuperKvasMini', SuperKvasMini),
         ]
         
         for name, cls in arch_classes:

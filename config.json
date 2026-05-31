@@ -26,7 +26,10 @@
     "Pacani",
     "ChickenMacNuggets",
     "SuperKvasLite",
-    "KvasShift"
+    "KvasShift",
+    "KvasFusion",
+    "KvasFusionSoft",
+    "SuperKvasMini"
   ],
   "anti_cheat_allowlist": [
     "Transformer",
@@ -51,7 +54,10 @@
     "Pacani",
     "ChickenMacNuggets",
     "SuperKvasLite",
-    "KvasShift"
+    "KvasShift",
+    "KvasFusion",
+    "KvasFusionSoft",
+    "SuperKvasMini"
   ],
   "architectures": {
     "Transformer": {
@@ -622,6 +628,29 @@
     "KvasShift": {
       "vocab_size": 256,
       "d_model": 96,
+      "num_layers": 2,
+      "max_context_len": 1000000,
+      "dropout": 0.03
+    },
+    "KvasFusion": {
+      "vocab_size": 256,
+      "d_model": 88,
+      "bottleneck": 128,
+      "num_layers": 2,
+      "max_context_len": 1000000,
+      "dropout": 0.03
+    },
+    "KvasFusionSoft": {
+      "vocab_size": 256,
+      "d_model": 88,
+      "bottleneck": 128,
+      "num_layers": 2,
+      "max_context_len": 1000000,
+      "dropout": 0.03
+    },
+    "SuperKvasMini": {
+      "vocab_size": 256,
+      "d_model": 80,
       "num_layers": 2,
       "max_context_len": 1000000,
       "dropout": 0.03

@@ -73,6 +73,9 @@ from .pacani import Pacani
 from .chicken_mac_nuggets import ChickenMacNuggets
 from .super_kvas_lite import SuperKvasLite
 from .kvas_shift import KvasShift
+from .kvas_fusion import KvasFusion
+from .kvas_fusion_soft import KvasFusionSoft
+from .super_kvas_mini import SuperKvasMini
 
 __all__ = [
     'BaseArchitecture',
@@ -167,6 +170,9 @@ __all__ = [
     'ChickenMacNuggets',
     'SuperKvasLite',
     'KvasShift',
+    'KvasFusion',
+    'KvasFusionSoft',
+    'SuperKvasMini',
 ]
 
 # New v4.0 - Batch 2 (already imported above, adding to __all__ via tail)
