@@ -333,9 +333,12 @@ class NeuralArchitectureTestingSystemV3:
             report.append("TRAINING SPEED (faster is better):")
             sorted_by_train = sorted(metrics, key=lambda x: x['training_time'])
             for i, m in enumerate(sorted_by_train[:15], 1):
-                if m['training_time'] < float('inf'):
-                    samples_per_sec = 1000 / m['training_time']  # примерная оценка
-                    report.append(f"  {i:2d}. {m['name']:25s} {m['training_time']:.2f}s ({samples_per_sec:.1f} samples/sec)")
+                training_time = m['training_time']
+                if isinstance(training_time, (int, float)) and 0 < training_time < float('inf'):
+                    samples_per_sec = 1000 / training_time
+                    report.append(f"  {i:2d}. {m['name']:25s} {training_time:.2f}s ({samples_per_sec:.1f} samples/sec)")
+                elif training_time == 0:
+                    report.append(f"  {i:2d}. {m['name']:25s} no training phase")
             
             report.append("")
             

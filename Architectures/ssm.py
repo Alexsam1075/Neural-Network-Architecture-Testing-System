@@ -9,6 +9,7 @@ import torch.nn as nn
 from typing import Dict, Any
 import math
 from .base_architecture import BaseArchitecture
+from .positional import DynamicSinusoidalPositionEncoding
 
 
 class SSMLayer(nn.Module):
@@ -67,10 +68,6 @@ class SSMLayer(nn.Module):
             x_t = x_norm[:, t, :]  # (batch_size, d_model)
             
             # State update: h_{t+1} = A @ h_t + B @ x_t
-            # Using exponential discretization
-            A_discrete = torch.matrix_exp(self.A * self.delta.unsqueeze(0).unsqueeze(0))
-            
-            # Simplified version (more stable)
             A_discrete = torch.eye(self.state_dim, device=x.device, dtype=x.dtype) + self.A * self.delta.unsqueeze(0)
             
             h = torch.matmul(h, A_discrete.transpose(-2, -1)) + torch.matmul(x_t.unsqueeze(1), self.B.transpose(-2, -1)).squeeze(1)
@@ -130,12 +127,13 @@ class SSMArchitecture(BaseArchitecture):
         self.state_dim = config.get('state_dim', 64)
         self.num_layers = config.get('num_layers', 2)
         self.d_ff = config.get('d_ff', 512)
-        self.max_seq_len = config.get('max_seq_len', 128)
+        self.max_seq_len = config.get('max_seq_len', config.get('max_context_len', 128))
+        self.max_context_len = config.get('max_context_len', self.max_seq_len)
         self.dropout = config.get('dropout', 0.1)
         
         # Embedding layers
         self.token_embedding = nn.Embedding(self.vocab_size, self.d_model)
-        self.positional_embedding = nn.Embedding(self.max_seq_len, self.d_model)
+        self.positional_encoding = DynamicSinusoidalPositionEncoding(self.d_model)
         
         # SSM layers
         self.ssm_blocks = nn.ModuleList([
@@ -175,8 +173,7 @@ class SSMArchitecture(BaseArchitecture):
         
         # Embeddings
         token_emb = self.token_embedding(x)
-        pos_ids = torch.arange(seq_len, device=x.device).unsqueeze(0).expand(batch_size, -1)
-        pos_emb = self.positional_embedding(pos_ids)
+        pos_emb = self.positional_encoding(batch_size, seq_len, x.device, token_emb.dtype)
         
         x = self.dropout_layer(token_emb + pos_emb)
         
@@ -198,6 +195,8 @@ class SSMArchitecture(BaseArchitecture):
             'num_layers': self.num_layers,
             'd_ff': self.d_ff,
             'max_seq_len': self.max_seq_len,
+            'max_context_len': self.max_context_len,
+            'position_encoding': 'dynamic_sinusoidal',
             'dropout': self.dropout,
             'description': 'State Space Model - linear state transition architecture'
         }
