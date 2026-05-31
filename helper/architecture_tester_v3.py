@@ -213,6 +213,31 @@ class ArchitectureTesterV3:
             ('InfiniteContextLite', InfiniteContextLite),
             ('InfiniteContextCore', InfiniteContextCore),
             ('InfiniteContextPro', InfiniteContextPro),
+            # v17.0 RecallInfinity hybrid retrieval architectures
+            ('RecallInfinityLite', RecallInfinityLite),
+            ('RecallInfinityCore', RecallInfinityCore),
+            ('RecallInfinityPro', RecallInfinityPro),
+            # v18.0 FlashInfinity vectorized memory architectures
+            ('FlashInfinityTiny', FlashInfinityTiny),
+            ('FlashInfinityLite', FlashInfinityLite),
+            ('FlashInfinityCore', FlashInfinityCore),
+            # v19.0 PointerInfinity copy-retrieval architectures
+            ('PointerInfinityTiny', PointerInfinityTiny),
+            ('PointerInfinityLite', PointerInfinityLite),
+            ('PointerInfinityCore', PointerInfinityCore),
+            # v20.0 SprintInfinity fast depthwise-pointer architectures
+            ('SprintInfinityTiny', SprintInfinityTiny),
+            ('SprintInfinityLite', SprintInfinityLite),
+            ('SprintInfinityCore', SprintInfinityCore),
+            # v21.0 AssociativeSprint fast associative architectures
+            ('AssociativeSprintLite', AssociativeSprintLite),
+            ('AssociativeSprintCore', AssociativeSprintCore),
+            ('AssociativeSprintWide', AssociativeSprintWide),
+            ('AssociativeSprintClean', AssociativeSprintClean),
+            ('AssociativeSprintCleanWide', AssociativeSprintCleanWide),
+            ('AssociativeSprintGenerator', AssociativeSprintGenerator),
+            ('AssociativeSprintFactor', AssociativeSprintFactor),
+            ('AssociativeSprintGeneratorSmall', AssociativeSprintGeneratorSmall),
         ]
         
         for name, cls in arch_classes:

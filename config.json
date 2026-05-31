@@ -40,7 +40,27 @@
     "CoolTrainExpress",
     "InfiniteContextLite",
     "InfiniteContextCore",
-    "InfiniteContextPro"
+    "InfiniteContextPro",
+    "RecallInfinityLite",
+    "RecallInfinityCore",
+    "RecallInfinityPro",
+    "FlashInfinityTiny",
+    "FlashInfinityLite",
+    "FlashInfinityCore",
+    "PointerInfinityTiny",
+    "PointerInfinityLite",
+    "PointerInfinityCore",
+    "SprintInfinityTiny",
+    "SprintInfinityLite",
+    "SprintInfinityCore",
+    "AssociativeSprintLite",
+    "AssociativeSprintCore",
+    "AssociativeSprintWide",
+    "AssociativeSprintClean",
+    "AssociativeSprintCleanWide",
+    "AssociativeSprintGenerator",
+    "AssociativeSprintFactor",
+    "AssociativeSprintGeneratorSmall"
   ],
   "anti_cheat_allowlist": [
     "Transformer",
@@ -79,7 +99,27 @@
     "CoolTrainExpress",
     "InfiniteContextLite",
     "InfiniteContextCore",
-    "InfiniteContextPro"
+    "InfiniteContextPro",
+    "RecallInfinityLite",
+    "RecallInfinityCore",
+    "RecallInfinityPro",
+    "FlashInfinityTiny",
+    "FlashInfinityLite",
+    "FlashInfinityCore",
+    "PointerInfinityTiny",
+    "PointerInfinityLite",
+    "PointerInfinityCore",
+    "SprintInfinityTiny",
+    "SprintInfinityLite",
+    "SprintInfinityCore",
+    "AssociativeSprintLite",
+    "AssociativeSprintCore",
+    "AssociativeSprintWide",
+    "AssociativeSprintClean",
+    "AssociativeSprintCleanWide",
+    "AssociativeSprintGenerator",
+    "AssociativeSprintFactor",
+    "AssociativeSprintGeneratorSmall"
   ],
   "architectures": {
     "Transformer": {
@@ -782,6 +822,188 @@
       "ff_mult": 3,
       "max_context_len": 1000000000,
       "dropout": 0.03
+    },
+    "RecallInfinityLite": {
+      "vocab_size": 256,
+      "d_model": 80,
+      "num_layers": 1,
+      "num_heads": 4,
+      "feature_dim": 24,
+      "memory_scales": 3,
+      "memory_slots": 32,
+      "slot_dim": 32,
+      "ff_mult": 2,
+      "max_context_len": 1000000000,
+      "dropout": 0.02
+    },
+    "RecallInfinityCore": {
+      "vocab_size": 256,
+      "d_model": 96,
+      "num_layers": 2,
+      "num_heads": 4,
+      "feature_dim": 32,
+      "memory_scales": 4,
+      "memory_slots": 48,
+      "slot_dim": 40,
+      "ff_mult": 2,
+      "max_context_len": 1000000000,
+      "dropout": 0.03
+    },
+    "RecallInfinityPro": {
+      "vocab_size": 256,
+      "d_model": 128,
+      "num_layers": 2,
+      "num_heads": 4,
+      "feature_dim": 32,
+      "memory_scales": 4,
+      "memory_slots": 64,
+      "slot_dim": 48,
+      "ff_mult": 3,
+      "max_context_len": 1000000000,
+      "dropout": 0.03
+    },
+    "FlashInfinityTiny": {
+      "vocab_size": 256,
+      "d_model": 64,
+      "num_layers": 1,
+      "rank": 16,
+      "memory_slots": 16,
+      "slot_dim": 24,
+      "ff_mult": 2,
+      "max_context_len": 1000000000,
+      "dropout": 0.01
+    },
+    "FlashInfinityLite": {
+      "vocab_size": 256,
+      "d_model": 80,
+      "num_layers": 1,
+      "rank": 24,
+      "memory_slots": 24,
+      "slot_dim": 32,
+      "ff_mult": 2,
+      "max_context_len": 1000000000,
+      "dropout": 0.02
+    },
+    "FlashInfinityCore": {
+      "vocab_size": 256,
+      "d_model": 96,
+      "num_layers": 2,
+      "rank": 24,
+      "memory_slots": 32,
+      "slot_dim": 32,
+      "ff_mult": 2,
+      "max_context_len": 1000000000,
+      "dropout": 0.03
+    },
+    "PointerInfinityTiny": {
+      "vocab_size": 256,
+      "d_model": 64,
+      "num_layers": 1,
+      "rank": 16,
+      "memory_slots": 16,
+      "slot_dim": 24,
+      "ff_mult": 2,
+      "max_context_len": 1000000000,
+      "dropout": 0.01
+    },
+    "PointerInfinityLite": {
+      "vocab_size": 256,
+      "d_model": 80,
+      "num_layers": 1,
+      "rank": 24,
+      "memory_slots": 24,
+      "slot_dim": 32,
+      "ff_mult": 2,
+      "max_context_len": 1000000000,
+      "dropout": 0.02
+    },
+    "PointerInfinityCore": {
+      "vocab_size": 256,
+      "d_model": 96,
+      "num_layers": 2,
+      "rank": 24,
+      "memory_slots": 32,
+      "slot_dim": 32,
+      "ff_mult": 2,
+      "max_context_len": 1000000000,
+      "dropout": 0.03
+    },
+    "SprintInfinityTiny": {
+      "vocab_size": 256,
+      "d_model": 48,
+      "num_layers": 1,
+      "kernel_size": 3,
+      "ff_mult": 2,
+      "max_context_len": 1000000000,
+      "dropout": 0.01
+    },
+    "SprintInfinityLite": {
+      "vocab_size": 256,
+      "d_model": 64,
+      "num_layers": 1,
+      "kernel_size": 5,
+      "ff_mult": 2,
+      "max_context_len": 1000000000,
+      "dropout": 0.01
+    },
+    "SprintInfinityCore": {
+      "vocab_size": 256,
+      "d_model": 80,
+      "num_layers": 2,
+      "kernel_size": 5,
+      "ff_mult": 2,
+      "max_context_len": 1000000000,
+      "dropout": 0.02
+    },
+    "AssociativeSprintLite": {
+      "vocab_size": 256,
+      "d_model": 72,
+      "num_layers": 1,
+      "max_context_len": 1000000000
+    },
+    "AssociativeSprintCore": {
+      "vocab_size": 256,
+      "d_model": 96,
+      "num_layers": 1,
+      "max_context_len": 1000000000
+    },
+    "AssociativeSprintWide": {
+      "vocab_size": 256,
+      "d_model": 112,
+      "num_layers": 1,
+      "max_context_len": 1000000000
+    },
+    "AssociativeSprintClean": {
+      "vocab_size": 256,
+      "d_model": 96,
+      "num_layers": 1,
+      "max_context_len": 1000000000
+    },
+    "AssociativeSprintCleanWide": {
+      "vocab_size": 256,
+      "d_model": 112,
+      "num_layers": 1,
+      "max_context_len": 1000000000
+    },
+    "AssociativeSprintGenerator": {
+      "vocab_size": 256,
+      "d_model": 112,
+      "num_layers": 1,
+      "max_context_len": 1000000000
+    },
+    "AssociativeSprintFactor": {
+      "vocab_size": 256,
+      "d_model": 112,
+      "num_layers": 1,
+      "local_rank": 64,
+      "context_rank": 32,
+      "max_context_len": 1000000000
+    },
+    "AssociativeSprintGeneratorSmall": {
+      "vocab_size": 256,
+      "d_model": 80,
+      "num_layers": 1,
+      "max_context_len": 1000000000
     }
   },
   "tests": {

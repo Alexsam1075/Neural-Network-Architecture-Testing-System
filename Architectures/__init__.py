@@ -85,6 +85,20 @@ from .sweety_core import (
 )
 from .cool_train import CoolTrainLite, CoolTrainBalanced, CoolTrainExpress
 from .infinite_context import InfiniteContextLite, InfiniteContextCore, InfiniteContextPro
+from .recall_infinity import RecallInfinityLite, RecallInfinityCore, RecallInfinityPro
+from .flash_infinity import FlashInfinityTiny, FlashInfinityLite, FlashInfinityCore
+from .pointer_infinity import PointerInfinityTiny, PointerInfinityLite, PointerInfinityCore
+from .sprint_infinity import SprintInfinityTiny, SprintInfinityLite, SprintInfinityCore
+from .associative_sprint import (
+    AssociativeSprintLite,
+    AssociativeSprintCore,
+    AssociativeSprintWide,
+    AssociativeSprintClean,
+    AssociativeSprintCleanWide,
+    AssociativeSprintGenerator,
+    AssociativeSprintFactor,
+    AssociativeSprintGeneratorSmall,
+)
 
 __all__ = [
     'BaseArchitecture',
@@ -193,6 +207,26 @@ __all__ = [
     'InfiniteContextLite',
     'InfiniteContextCore',
     'InfiniteContextPro',
+    'RecallInfinityLite',
+    'RecallInfinityCore',
+    'RecallInfinityPro',
+    'FlashInfinityTiny',
+    'FlashInfinityLite',
+    'FlashInfinityCore',
+    'PointerInfinityTiny',
+    'PointerInfinityLite',
+    'PointerInfinityCore',
+    'SprintInfinityTiny',
+    'SprintInfinityLite',
+    'SprintInfinityCore',
+    'AssociativeSprintLite',
+    'AssociativeSprintCore',
+    'AssociativeSprintWide',
+    'AssociativeSprintClean',
+    'AssociativeSprintCleanWide',
+    'AssociativeSprintGenerator',
+    'AssociativeSprintFactor',
+    'AssociativeSprintGeneratorSmall',
 ]
 
 # New v4.0 - Batch 2 (already imported above, adding to __all__ via tail)
