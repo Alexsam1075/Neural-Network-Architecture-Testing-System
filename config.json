@@ -670,6 +670,17 @@
       "memory_budget_mb": 1024,
       "quadratic_exact_limit": 2048,
       "context_probe_length": 512
+    },
+    "StackTracker": {
+      "seq_length": 40,
+      "num_samples": 512,
+      "num_eval_samples": 128,
+      "batch_size": 32,
+      "epochs": 6,
+      "learning_rate": 0.001,
+      "max_stack_depth": 8,
+      "stack_symbols": 24,
+      "random_seed": 1337
     }
   }
 }

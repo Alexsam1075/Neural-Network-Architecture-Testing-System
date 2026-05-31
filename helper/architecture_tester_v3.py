@@ -31,6 +31,7 @@ from Tests.generation_quality_tests import (
 from Tests.ultra_long_context_test import UltraLongContextTest
 from Tests.base_test import BaseTest
 from Tests.anti_cheat import audit_architecture_class
+from Tests.stack_tracker_test import StackTrackerTest
 
 
 class ArchitectureTesterV3:
@@ -211,6 +212,7 @@ class ArchitectureTesterV3:
             'AlgorithmicRollout': AlgorithmicRolloutTest,
             'RepetitionCollapse': RepetitionCollapseTest,
             'UltraLongContext': UltraLongContextTest,
+            'StackTracker': StackTrackerTest,
         }
         
         return tests

@@ -7,3 +7,4 @@ runs/
 *.bin
 results/cache/
 results/
+100_architecture_tests.md
