@@ -29,7 +29,12 @@
     "KvasShift",
     "KvasFusion",
     "KvasFusionSoft",
-    "SuperKvasMini"
+    "SuperKvasMini",
+    "SweetyCoreMicro",
+    "SweetyCoreTiny",
+    "SweetyCoreLite",
+    "SweetyCoreSmart",
+    "SweetyCoreStream"
   ],
   "anti_cheat_allowlist": [
     "Transformer",
@@ -57,7 +62,12 @@
     "KvasShift",
     "KvasFusion",
     "KvasFusionSoft",
-    "SuperKvasMini"
+    "SuperKvasMini",
+    "SweetyCoreMicro",
+    "SweetyCoreTiny",
+    "SweetyCoreLite",
+    "SweetyCoreSmart",
+    "SweetyCoreStream"
   ],
   "architectures": {
     "Transformer": {
@@ -654,6 +664,49 @@
       "num_layers": 2,
       "max_context_len": 1000000,
       "dropout": 0.03
+    },
+    "SweetyCoreMicro": {
+      "vocab_size": 256,
+      "d_model": 24,
+      "rank": 16,
+      "num_layers": 1,
+      "use_transition": false,
+      "max_context_len": 1000000,
+      "dropout": 0.0
+    },
+    "SweetyCoreTiny": {
+      "vocab_size": 256,
+      "d_model": 32,
+      "rank": 24,
+      "num_layers": 1,
+      "use_transition": true,
+      "max_context_len": 1000000,
+      "dropout": 0.01
+    },
+    "SweetyCoreLite": {
+      "vocab_size": 256,
+      "d_model": 48,
+      "rank": 32,
+      "num_layers": 2,
+      "use_transition": true,
+      "max_context_len": 1000000,
+      "dropout": 0.02
+    },
+    "SweetyCoreSmart": {
+      "vocab_size": 256,
+      "d_model": 64,
+      "rank": 48,
+      "num_layers": 2,
+      "use_transition": true,
+      "use_semantic_head": true,
+      "max_context_len": 1000000,
+      "dropout": 0.02
+    },
+    "SweetyCoreStream": {
+      "vocab_size": 256,
+      "d_model": 48,
+      "max_context_len": 1000000,
+      "dropout": 0.0
     }
   },
   "tests": {

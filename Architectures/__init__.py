@@ -76,6 +76,13 @@ from .kvas_shift import KvasShift
 from .kvas_fusion import KvasFusion
 from .kvas_fusion_soft import KvasFusionSoft
 from .super_kvas_mini import SuperKvasMini
+from .sweety_core import (
+    SweetyCoreMicro,
+    SweetyCoreTiny,
+    SweetyCoreLite,
+    SweetyCoreSmart,
+    SweetyCoreStream,
+)
 
 __all__ = [
     'BaseArchitecture',
@@ -173,6 +180,11 @@ __all__ = [
     'KvasFusion',
     'KvasFusionSoft',
     'SuperKvasMini',
+    'SweetyCoreMicro',
+    'SweetyCoreTiny',
+    'SweetyCoreLite',
+    'SweetyCoreSmart',
+    'SweetyCoreStream',
 ]
 
 # New v4.0 - Batch 2 (already imported above, adding to __all__ via tail)

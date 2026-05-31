@@ -199,6 +199,12 @@ class ArchitectureTesterV3:
             ('KvasFusion', KvasFusion),
             ('KvasFusionSoft', KvasFusionSoft),
             ('SuperKvasMini', SuperKvasMini),
+            # v14.0 SweetyCore micro architectures
+            ('SweetyCoreMicro', SweetyCoreMicro),
+            ('SweetyCoreTiny', SweetyCoreTiny),
+            ('SweetyCoreLite', SweetyCoreLite),
+            ('SweetyCoreSmart', SweetyCoreSmart),
+            ('SweetyCoreStream', SweetyCoreStream),
         ]
         
         for name, cls in arch_classes:
