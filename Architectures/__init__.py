@@ -83,6 +83,7 @@ from .sweety_core import (
     SweetyCoreSmart,
     SweetyCoreStream,
 )
+from .cool_train import CoolTrainLite, CoolTrainBalanced, CoolTrainExpress
 
 __all__ = [
     'BaseArchitecture',
@@ -185,6 +186,9 @@ __all__ = [
     'SweetyCoreLite',
     'SweetyCoreSmart',
     'SweetyCoreStream',
+    'CoolTrainLite',
+    'CoolTrainBalanced',
+    'CoolTrainExpress',
 ]
 
 # New v4.0 - Batch 2 (already imported above, adding to __all__ via tail)

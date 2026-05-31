@@ -34,7 +34,10 @@
     "SweetyCoreTiny",
     "SweetyCoreLite",
     "SweetyCoreSmart",
-    "SweetyCoreStream"
+    "SweetyCoreStream",
+    "CoolTrainLite",
+    "CoolTrainBalanced",
+    "CoolTrainExpress"
   ],
   "anti_cheat_allowlist": [
     "Transformer",
@@ -67,7 +70,10 @@
     "SweetyCoreTiny",
     "SweetyCoreLite",
     "SweetyCoreSmart",
-    "SweetyCoreStream"
+    "SweetyCoreStream",
+    "CoolTrainLite",
+    "CoolTrainBalanced",
+    "CoolTrainExpress"
   ],
   "architectures": {
     "Transformer": {
@@ -707,6 +713,36 @@
       "d_model": 48,
       "max_context_len": 1000000,
       "dropout": 0.0
+    },
+    "CoolTrainLite": {
+      "vocab_size": 256,
+      "d_model": 72,
+      "num_layers": 2,
+      "num_heads": 4,
+      "feature_dim": 24,
+      "ff_mult": 2,
+      "max_context_len": 1000000,
+      "dropout": 0.03
+    },
+    "CoolTrainBalanced": {
+      "vocab_size": 256,
+      "d_model": 96,
+      "num_layers": 2,
+      "num_heads": 4,
+      "feature_dim": 32,
+      "ff_mult": 2,
+      "max_context_len": 1000000,
+      "dropout": 0.03
+    },
+    "CoolTrainExpress": {
+      "vocab_size": 256,
+      "d_model": 80,
+      "num_layers": 1,
+      "num_heads": 4,
+      "feature_dim": 24,
+      "ff_mult": 2,
+      "max_context_len": 1000000,
+      "dropout": 0.02
     }
   },
   "tests": {

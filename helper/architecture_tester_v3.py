@@ -205,6 +205,10 @@ class ArchitectureTesterV3:
             ('SweetyCoreLite', SweetyCoreLite),
             ('SweetyCoreSmart', SweetyCoreSmart),
             ('SweetyCoreStream', SweetyCoreStream),
+            # v15.0 CoolTrain transformer-synthesis architectures
+            ('CoolTrainLite', CoolTrainLite),
+            ('CoolTrainBalanced', CoolTrainBalanced),
+            ('CoolTrainExpress', CoolTrainExpress),
         ]
         
         for name, cls in arch_classes:
