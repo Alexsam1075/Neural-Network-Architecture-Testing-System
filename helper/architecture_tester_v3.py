@@ -252,6 +252,10 @@ class ArchitectureTesterV3:
             # v25.0 ConvSprint non-quadratic generator architectures
             ('ConvSprintGeneratorLite', ConvSprintGeneratorLite),
             ('ConvSprintGeneratorWide', ConvSprintGeneratorWide),
+            # v26.0 SpeedSprint speed-recovery architectures
+            ('SpeedSprintSDPALite', SpeedSprintSDPALite),
+            ('SpeedSprintSDPA', SpeedSprintSDPA),
+            ('SpeedSprintPrefix', SpeedSprintPrefix),
         ]
         
         for name, cls in arch_classes:

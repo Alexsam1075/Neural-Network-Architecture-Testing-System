@@ -83,7 +83,7 @@ class HonestSequenceCore(BaseArchitecture):
             h = h + block["mix"](c)
             if self.use_attention:
                 n = block["norm"](h)
-                attn, _ = block["attn"](n, n, n)
+                attn, _ = block["attn"](n, n, n, need_weights=False)
                 h = h + attn
             h = h + block["ffn"](h)
 

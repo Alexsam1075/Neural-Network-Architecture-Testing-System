@@ -70,7 +70,10 @@
     "TransitionSprintCore",
     "TransitionSprintPro",
     "ConvSprintGeneratorLite",
-    "ConvSprintGeneratorWide"
+    "ConvSprintGeneratorWide",
+    "SpeedSprintSDPALite",
+    "SpeedSprintSDPA",
+    "SpeedSprintPrefix"
   ],
   "anti_cheat_allowlist": [
     "Transformer",
@@ -139,7 +142,10 @@
     "TransitionSprintCore",
     "TransitionSprintPro",
     "ConvSprintGeneratorLite",
-    "ConvSprintGeneratorWide"
+    "ConvSprintGeneratorWide",
+    "SpeedSprintSDPALite",
+    "SpeedSprintSDPA",
+    "SpeedSprintPrefix"
   ],
   "architectures": {
     "Transformer": {
@@ -1118,6 +1124,23 @@
       "vocab_size": 256,
       "d_model": 112,
       "num_layers": 2,
+      "max_context_len": 1000000000
+    },
+    "SpeedSprintSDPALite": {
+      "vocab_size": 256,
+      "d_model": 80,
+      "num_heads": 4,
+      "max_context_len": 1000000000
+    },
+    "SpeedSprintSDPA": {
+      "vocab_size": 256,
+      "d_model": 96,
+      "num_heads": 4,
+      "max_context_len": 1000000000
+    },
+    "SpeedSprintPrefix": {
+      "vocab_size": 256,
+      "d_model": 96,
       "max_context_len": 1000000000
     }
   },
