@@ -238,6 +238,20 @@ class ArchitectureTesterV3:
             ('AssociativeSprintGenerator', AssociativeSprintGenerator),
             ('AssociativeSprintFactor', AssociativeSprintFactor),
             ('AssociativeSprintGeneratorSmall', AssociativeSprintGeneratorSmall),
+            # v22.0 LinearSprint non-quadratic generator architectures
+            ('LinearSprintTiny', LinearSprintTiny),
+            ('LinearSprintCore', LinearSprintCore),
+            ('LinearSprintPro', LinearSprintPro),
+            # v23.0 HashSprint hashed n-gram recall architectures
+            ('HashSprintTiny', HashSprintTiny),
+            ('HashSprintCore', HashSprintCore),
+            ('HashSprintPro', HashSprintPro),
+            # v24.0 TransitionSprint prefix transition memory architectures
+            ('TransitionSprintCore', TransitionSprintCore),
+            ('TransitionSprintPro', TransitionSprintPro),
+            # v25.0 ConvSprint non-quadratic generator architectures
+            ('ConvSprintGeneratorLite', ConvSprintGeneratorLite),
+            ('ConvSprintGeneratorWide', ConvSprintGeneratorWide),
         ]
         
         for name, cls in arch_classes:

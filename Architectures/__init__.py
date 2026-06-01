@@ -99,6 +99,10 @@ from .associative_sprint import (
     AssociativeSprintFactor,
     AssociativeSprintGeneratorSmall,
 )
+from .linear_sprint import LinearSprintTiny, LinearSprintCore, LinearSprintPro
+from .hash_sprint import HashSprintTiny, HashSprintCore, HashSprintPro
+from .transition_sprint import TransitionSprintCore, TransitionSprintPro
+from .conv_sprint import ConvSprintGeneratorLite, ConvSprintGeneratorWide
 
 __all__ = [
     'BaseArchitecture',
@@ -227,6 +231,16 @@ __all__ = [
     'AssociativeSprintGenerator',
     'AssociativeSprintFactor',
     'AssociativeSprintGeneratorSmall',
+    'LinearSprintTiny',
+    'LinearSprintCore',
+    'LinearSprintPro',
+    'HashSprintTiny',
+    'HashSprintCore',
+    'HashSprintPro',
+    'TransitionSprintCore',
+    'TransitionSprintPro',
+    'ConvSprintGeneratorLite',
+    'ConvSprintGeneratorWide',
 ]
 
 # New v4.0 - Batch 2 (already imported above, adding to __all__ via tail)
